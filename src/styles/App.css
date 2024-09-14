@@ -1,0 +1,23 @@
+.body{
+    background-color: rgba(255, 255, 0, 0.897);
+}
+.header{
+    text-align: center;
+    color: rgb(19, 18, 18);
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin-left: 8%;
+}
+.todo{
+    margin: 1%;
+    flex: 3;
+}
+.remove-button{
+    margin-right: 3%;
+}
