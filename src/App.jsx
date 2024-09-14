@@ -30,7 +30,9 @@ function App() {
           placeholder="Enter todo..."
           onChange={handleInput}
         />
-        <button onClick={handleAdd}>Add</button>
+        <button className="add-button" onClick={handleAdd}>
+          Add
+        </button>
       </div>
       {todos &&
         todos.map((ele) => (
