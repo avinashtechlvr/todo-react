@@ -14,18 +14,28 @@ function App() {
       setTodo("");
     }
   };
+  const handleRemove = (value) => {
+    let newTodos = [...todos];
+    const index = newTodos.indexOf(value);
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  };
   return (
     <>
       <h1 className="header">Todo List</h1>
-      <div>
+      <div className="container">
         <input
+          className="input-todo"
           value={todo}
           placeholder="Enter todo..."
           onChange={handleInput}
         />
         <button onClick={handleAdd}>Add</button>
       </div>
-      {todos && todos.map((ele) => <Todo key={ele} todo={ele} />)}
+      {todos &&
+        todos.map((ele) => (
+          <Todo key={ele} todo={ele} removeTodo={handleRemove} />
+        ))}
     </>
   );
 }

@@ -1,9 +1,11 @@
 import "../styles/App.css";
-function Todo({ todo }) {
+function Todo({ todo, removeTodo }) {
   return (
     <div className="container">
       <h1 className="todo">{todo}</h1>
-      <button className="remove-button">Remove</button>
+      <button onClick={() => removeTodo(todo)} className="remove-button">
+        Remove
+      </button>
     </div>
   );
 }
