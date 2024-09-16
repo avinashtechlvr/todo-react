@@ -3,7 +3,7 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 
 function Todo({ todo, removeTodo }) {
   return (
-    <div className="container">
+    <div className="container do">
       <h1 className="todo">{todo.value}</h1>
       <button onClick={() => removeTodo(todo.id)} className="remove-button">
         <FaTrash className="delete-icon" />

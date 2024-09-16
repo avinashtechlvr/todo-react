@@ -11,8 +11,8 @@ function App() {
   const handleAdd = () => {
     if (todo) {
       let newTodo = {};
-      newTodo.id = todos.length + 1;
-      newTodo.value = todo;
+      newTodo.id = newTodo.value = todo;
+      newTodo.staus = "todo";
       setTodos([...todos, newTodo]);
       setTodo("");
     }
