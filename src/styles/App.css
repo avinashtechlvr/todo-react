@@ -40,8 +40,8 @@ body {
     flex: 3;
     color: #282828;
 }
-.remove-button{
-    margin-right: 3%;
+.remove-button, .edit-button{
+    margin-right: 1%;
     background-color: white;
     border: none;
     border-radius: 4px;
@@ -53,9 +53,18 @@ body {
     margin: 0.2rem;
     transition: color 0.5s ease; 
 }
+.edit-icon{
+    size: 1em;
+    color: #2c5e5d;
+    margin: 0.2rem;
+    transition: color 0.5s ease; 
+}
 .remove-button:hover{
     background-color: #db1f02;
 }
-.remove-button:hover svg{
+.edit-button:hover{
+    background-color: #2c5e5d;
+}
+.remove-button:hover svg, .edit-button:hover svg{
     color: white;
 }

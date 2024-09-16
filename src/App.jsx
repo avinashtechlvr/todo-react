@@ -10,13 +10,16 @@ function App() {
   }
   const handleAdd = () => {
     if (todo) {
-      setTodos([...todos, todo]);
+      let newTodo = {};
+      newTodo.id = todos.length + 1;
+      newTodo.value = todo;
+      setTodos([...todos, newTodo]);
       setTodo("");
     }
   };
-  const handleRemove = (value) => {
+  const handleRemove = (id) => {
     let newTodos = [...todos];
-    const index = newTodos.indexOf(value);
+    const index = newTodos.findIndex((ele) => ele.id === id);
     newTodos.splice(index, 1);
     setTodos(newTodos);
   };
@@ -36,7 +39,7 @@ function App() {
       </div>
       {todos &&
         todos.map((ele) => (
-          <Todo key={ele} todo={ele} removeTodo={handleRemove} />
+          <Todo key={ele.id} todo={ele} removeTodo={handleRemove} />
         ))}
     </>
   );
