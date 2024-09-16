@@ -12,7 +12,7 @@ function App() {
     if (todo) {
       let newTodo = {};
       newTodo.id = newTodo.value = todo;
-      newTodo.staus = "todo";
+      newTodo.status = "todo";
       setTodos([...todos, newTodo]);
       setTodo("");
     }
