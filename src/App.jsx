@@ -1,27 +1,24 @@
 import { useState } from "react";
 import Todo from "./components/Todo";
 import "./styles/App.css";
+import {useTodos} from "./contexts/TaskProvider.jsx";
 
 function App() {
+
   const [todo, setTodo] = useState("");
-  const [todos, setTodos] = useState([]);
+  const { tasks, addTask, deleteTask } = useTodos();
   function handleInput(e) {
     setTodo(e.target.value);
   }
   const handleAdd = () => {
     if (todo) {
-      let newTodo = {};
-      newTodo.id = todos.length + 1;
-      newTodo.value = todo;
-      setTodos([...todos, newTodo]);
+
+      addTask(todo);
       setTodo("");
     }
   };
   const handleRemove = (id) => {
-    let newTodos = [...todos];
-    const index = newTodos.findIndex((ele) => ele.id === id);
-    newTodos.splice(index, 1);
-    setTodos(newTodos);
+  deleteTask(id);
   };
   return (
     <>
@@ -37,8 +34,8 @@ function App() {
           Add
         </button>
       </div>
-      {todos &&
-        todos.map((ele) => (
+      {tasks &&
+        tasks.map((ele) => (
           <Todo key={ele.id} todo={ele} removeTodo={handleRemove} />
         ))}
     </>
