@@ -1,8 +1,10 @@
 import {useState} from "react";
+import {useToast} from "../contexts/ToastProvider.jsx";
 
 
 export function AddTask({addTask}) {
     const [todo, setTodo] = useState("");
+    const {addToast} = useToast();
     function handleInput(e) {
         setTodo(e.target.value);
     }
@@ -10,6 +12,7 @@ export function AddTask({addTask}) {
         if (todo) {
             addTask(todo);
             setTodo("");
+            addToast("Added new Task", "success");
         }
     };
     return (<div className="container">

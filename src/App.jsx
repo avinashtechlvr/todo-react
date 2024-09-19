@@ -6,13 +6,12 @@ import {AddTask} from "./components/AddTask.jsx";
 
 function App() {
 
-  const [todo, setTodo] = useState("");
   const { tasks, addTask, deleteTask } = useTodos();
-
 
   const handleRemove = (id) => {
   deleteTask(id);
   };
+
   return (
     <>
       <h1 className="header">Todo List</h1>
