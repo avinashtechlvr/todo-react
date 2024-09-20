@@ -5,9 +5,11 @@ import {useToast} from "../contexts/ToastProvider.jsx";
 export function AddTask({addTask}) {
     const [todo, setTodo] = useState("");
     const {addToast} = useToast();
+
     function handleInput(e) {
         setTodo(e.target.value);
     }
+
     const handleAdd = () => {
         if (todo) {
             addTask(todo);
