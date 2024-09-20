@@ -72,6 +72,7 @@ body::before {
 }
 .todo{
     margin: 1%;
+    padding-left: 0.4rem;
     flex: 3;
     color: #282828;
 }
