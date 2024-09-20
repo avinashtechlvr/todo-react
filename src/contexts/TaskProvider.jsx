@@ -13,8 +13,9 @@ export default function TaskProvider({children}) {
         ...task,
         status: status
     } : task));
+    const editTask = (id,value) => setTasks(tasks.map(task => task.id === id ? {...task, value:value} : task));
     const deleteTask = (id) => setTasks(tasks.filter(task => task.id !== id))
     return (
-        <TaskContext.Provider value={{tasks, addTask, setStatusTask, deleteTask}}>{children}</TaskContext.Provider>
+        <TaskContext.Provider value={{tasks, addTask, setStatusTask, deleteTask, editTask}}>{children}</TaskContext.Provider>
     )
 }
