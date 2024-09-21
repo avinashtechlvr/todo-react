@@ -76,7 +76,7 @@ body::before {
     flex: 3;
     color: #282828;
 }
-.remove-button, .edit-button{
+.remove-button, .edit-button, .status-button {
     margin-right: 1%;
     background-color: white;
     border: none;
@@ -104,8 +104,30 @@ body::before {
 .remove-button:hover svg, .edit-button:hover svg{
     color: white;
 }
+.status-icon {
+    size: 1em;
+    margin: 0.2rem;
+    transition: color 0.5s ease;
+}
 
-/* Styles for Floating Action Button (FAB) */
+ .check-button:hover {
+    background-color: #db1f02;
+}
+.clock-button:hover{
+    background-color: dodgerblue;
+}
+.status-button:hover .status-icon {
+    color: white;
+}
+.check-icon{
+    color: #db1f02;
+}
+.clock-icon{
+    color: dodgerblue;
+}
+.todo.completed-status{
+    text-decoration: line-through;
+}
 .fab {
     position: fixed;
     bottom: 20px;
@@ -132,4 +154,3 @@ body::before {
 .fab-icon {
     font-size: 24px; /* Size of the plus icon */
 }
-
