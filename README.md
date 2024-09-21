@@ -12,7 +12,7 @@ A simple and interactive **Todo App** built with **React** to practice and learn
 - **Dynamic UI Updates**: The UI automatically updates to reflect changes in tasks.
 - **Toasts & Popups**: Integrated modals for popups and toast notifications to enhance the user experience.
 - **Error Handling**: Displays error messages for invalid inputs while editing tasks.
-
+- **Task Filtering**: Add functionality to filter tasks by status (completed, in-progress, etc.).
 ---
 
 ## 🛠️ Tech Stack
@@ -81,7 +81,7 @@ This will start the app on `localhost:5173`. Open your browser and navigate to `
 
 ## 🌱 Future Enhancements
 
-- **Task Filtering**: Add functionality to filter tasks by status (completed, in-progress, etc.).
+
 - **Drag and Drop**: Enable users to rearrange tasks by dragging and dropping.
 - **Task Deadlines**: Add deadlines and reminders to tasks.
 
