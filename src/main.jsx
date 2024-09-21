@@ -6,13 +6,11 @@ import {ToastProvider} from "./contexts/ToastProvider.jsx";
 import {ModalProvider} from "./contexts/ModalProvider.jsx";
 
 createRoot(document.getElementById("root")).render(
-    <StrictMode>
-        <TaskProvider>
-            <ToastProvider>
-                <ModalProvider>
-                    <App/>
-                </ModalProvider>
-            </ToastProvider>
-        </TaskProvider>
-    </StrictMode>
+    <TaskProvider>
+        <ToastProvider>
+            <ModalProvider>
+                <App/>
+            </ModalProvider>
+        </ToastProvider>
+    </TaskProvider>
 );
