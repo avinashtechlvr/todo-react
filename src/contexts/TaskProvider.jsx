@@ -8,6 +8,7 @@ export const useTodos = () => useContext(TaskContext);
 export default function TaskProvider({ children }) {
     const [tasks, setTasks] = useState([]);
     const [searchQuery, setSearchQuery] = useState("");
+    const [currentStatus, setCurrentStatus] = useState("all");
 
     const addTask = (task) => setTasks([...tasks, { id: v4(), value: task, status: "todo" }]);
 
@@ -23,16 +24,18 @@ export default function TaskProvider({ children }) {
         setTasks(tasks.filter(task => task.id !== id));
     };
 
-    const filterTasks = (query) => {
-        setSearchQuery(query); // Update the search query state
+    const filterTasks = (statusFilter, query) => {
+        setSearchQuery(query);
+        setCurrentStatus(statusFilter);
     };
 
-    const filteredTasks = tasks.filter(task =>
-        task.value.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-
+    const filterTasksByStatusAndQuery = tasks.filter(task => {
+            const matchesStatus = currentStatus === 'all' || task.status === currentStatus;
+            const matchesQuery = task.value.toLowerCase().includes(searchQuery.toLowerCase());
+            return matchesStatus && matchesQuery;
+        });
     return (
-        <TaskContext.Provider value={{ tasks: filteredTasks, addTask, setStatusTask, deleteTask, editTask, filterTasks }}>
+        <TaskContext.Provider value={{ tasks: filterTasksByStatusAndQuery, addTask, setStatusTask, deleteTask, editTask, filterTasks, filterTasksByStatusAndQuery, searchQuery }}>
             {children}
         </TaskContext.Provider>
     );

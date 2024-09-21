@@ -1,17 +1,21 @@
-import {useState} from "react";
-import {useToast} from "../contexts/ToastProvider.jsx";
+import {useEffect, useState} from "react";
+import {useTodos} from "../contexts/TaskProvider.jsx";
 
-
-export function SearchTask({filterTasks = () => {}}) {
+export function SearchTask({filterTasks = () => {}, currentFilter="all"}) {
+    const { searchQuery } = useTodos();
     const [todo, setTodo] = useState("");
-    const {addToast} = useToast();
+
+    useEffect(() => {
+        setTodo(searchQuery);
+    }, [searchQuery]);
 
     function handleInput(e) {
         setTodo(e.target.value);
     }
 
     const handleSearch = () => {
-            filterTasks(todo);
+
+       filterTasks(currentFilter,todo);
     };
     return (<div className="container">
         <input
