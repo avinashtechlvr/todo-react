@@ -1,27 +1,28 @@
-import {useState} from "react";
+import { useCallback } from "react";
 import Todo from "./components/Todo";
 import "./styles/App.css";
-import {useTodos} from "./contexts/TaskProvider.jsx";
-import {AddTask} from "./components/AddTask.jsx";
-import {useToast} from "./contexts/ToastProvider.jsx";
+import { useTodos } from "./contexts/TaskProvider.jsx";
+import { AddTask } from "./components/AddTask.jsx";
+import { useToast } from "./contexts/ToastProvider.jsx";
 
 function App() {
+    const { tasks, addTask, deleteTask } = useTodos();
+    const { addToast } = useToast();
 
-    const {tasks, addTask, deleteTask} = useTodos();
-    const {addToast} = useToast();
-    const handleRemove = (id) => {
+    const handleRemove = useCallback((id) => {
         deleteTask(id);
         addToast("Deleted todo!!!", "failure");
-    };
+    }, [deleteTask, addToast]);
+
+
 
     return (
         <>
             <h1 className="header">Todo List</h1>
-            <AddTask addTask={addTask}/>
-            {tasks &&
-                tasks.map((ele) => (
-                    <Todo key={ele.id} todo={ele} removeTodo={handleRemove}/>
-                ))}
+            <AddTask addTask={addTask} />
+            {tasks && tasks.map((ele) => (
+                <Todo key={ele.id} todo={ele} removeTodo={handleRemove} />
+            ))}
         </>
     );
 }
