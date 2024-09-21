@@ -12,7 +12,7 @@ import {useModal} from "./contexts/ModalProvider.jsx";
 import TaskForm from "./components/TaskForm.jsx";
 
 function App() {
-    const { tasks, addTask, deleteTask } = useTodos();
+    const { tasks, addTask, deleteTask, filterTasks } = useTodos();
     const { addToast } = useToast();
     const {showModal} = useModal();
 
@@ -25,10 +25,15 @@ function App() {
         showModal(<TaskForm />);
     },[showModal]);
 
+    const handleSearchChange = useCallback((value) => {
+        filterTasks(value);
+    }, [filterTasks]);
+
+
     return (
         <>
             <h1 className="header">Todo List</h1>
-            <SearchTask addTask={addTask}/>
+            <SearchTask filterTasks={handleSearchChange}/>
             {tasks && tasks.map((ele) => (
                 <Todo key={ele.id} todo={ele} removeTodo={handleRemove}/>
             ))}

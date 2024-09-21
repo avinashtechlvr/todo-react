@@ -2,7 +2,7 @@ import {useState} from "react";
 import {useToast} from "../contexts/ToastProvider.jsx";
 
 
-export function SearchTask({addTask}) {
+export function SearchTask({filterTasks = () => {}}) {
     const [todo, setTodo] = useState("");
     const {addToast} = useToast();
 
@@ -11,9 +11,7 @@ export function SearchTask({addTask}) {
     }
 
     const handleSearch = () => {
-        if (todo) {
-            alert("need to add search code!!!");
-        }
+            filterTasks(todo);
     };
     return (<div className="container">
         <input
