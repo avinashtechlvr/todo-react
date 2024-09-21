@@ -2,7 +2,7 @@ import {useState} from "react";
 import {useToast} from "../contexts/ToastProvider.jsx";
 
 
-export function AddTask({addTask}) {
+export function SearchTask({filterTasks = () => {}}) {
     const [todo, setTodo] = useState("");
     const {addToast} = useToast();
 
@@ -10,22 +10,18 @@ export function AddTask({addTask}) {
         setTodo(e.target.value);
     }
 
-    const handleAdd = () => {
-        if (todo) {
-            addTask(todo);
-            setTodo("");
-            addToast("Added new Task", "success");
-        }
+    const handleSearch = () => {
+            filterTasks(todo);
     };
     return (<div className="container">
         <input
             className="input-todo"
             value={todo}
-            placeholder="Enter todos..."
+            placeholder="Enter todos to search"
             onChange={handleInput}
         />
-        <button className="add-button" onClick={handleAdd}>
-            Add
+        <button className="add-button" onClick={handleSearch}>
+            Search
         </button>
     </div>);
 }

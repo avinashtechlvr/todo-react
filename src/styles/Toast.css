@@ -4,11 +4,11 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
-    width: 300px; /* Width of the toast */
+    width: 300px;
 }
 
 .toast {
-    background-color: #4caf50; /* Green background */
+    background-color: #4caf50;
     color: white;
     padding: 15px;
     margin: 10px 0;
@@ -48,5 +48,5 @@
     border: none;
     color: white;
     cursor: pointer;
-    font-size: 1.2em; /* Adjust size as needed */
+    font-size: 1.2em;
 }

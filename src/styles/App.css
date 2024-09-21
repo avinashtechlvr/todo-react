@@ -104,3 +104,32 @@ body::before {
 .remove-button:hover svg, .edit-button:hover svg{
     color: white;
 }
+
+/* Styles for Floating Action Button (FAB) */
+.fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #198380; /* You can customize the color */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 24px;
+    transition: background-color 0.3s ease;
+}
+
+.fab:hover {
+    background-color: #163231; /* Darker blue on hover */
+}
+
+.fab-icon {
+    font-size: 24px; /* Size of the plus icon */
+}
+
