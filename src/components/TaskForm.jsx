@@ -3,6 +3,8 @@ import {useTodos} from "../contexts/TaskProvider.jsx";
 import {useToast} from "../contexts/ToastProvider.jsx";
 import {useModal} from "../contexts/ModalProvider.jsx";
 
+import "../styles/TaskForm.css";
+
 const TaskForm = ({todo = {}, isEdit = false}) => {
     const {editTask, addTask} = useTodos();
     const {addToast} = useToast();
@@ -48,9 +50,9 @@ const TaskForm = ({todo = {}, isEdit = false}) => {
 
     return (
         <div>
-            <h2>{isEdit ? "Edit Task" : "Add Task"}</h2>
-            <input onChange={handleInputChange} value={task} placeholder="Enter task..." />
-            <button onClick={handleSubmit}>Save</button>
+            <h2 className="taskform-header">{isEdit ? "Edit Task" : "Add Task"}</h2>
+            <input className="taskform-input" onChange={handleInputChange} value={task} placeholder="Enter task..." />
+            <button className="taskform-button" onClick={handleSubmit}>Save</button>
         </div>
     );
 };

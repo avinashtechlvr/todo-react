@@ -1,0 +1,56 @@
+/* Container for the task form */
+.taskform-header {
+    font-size: 24px;
+    margin-bottom: 16px;
+    text-align: center;
+    color: #282828; /* White text for contrast */
+}
+
+/* Input styling */
+.taskform-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #449190; /* Border color matching #449190 */
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+/* Focus state for input */
+.taskform-input:focus {
+    border-color: #163231; /* Change focus border color */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3); /* Slight blue glow */
+}
+
+/* Button styling */
+.taskform-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #449190; /* Match button color to #449190 */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover and active state for button */
+.taskform-button:hover {
+    background-color: #367f76; /* Darker shade for hover */
+}
+
+.taskform-button:active {
+    background-color: #2e6965; /* Even darker shade on active */
+}
+
+/* Responsive spacing for smaller screens */
+@media (max-width: 600px) {
+    .taskform-input, .taskform-button {
+        padding: 10px;
+    }
+}
